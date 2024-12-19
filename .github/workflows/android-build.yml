@@ -78,8 +78,13 @@ jobs:
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
 
+      - name: Rename APK
+        run: |
+          cd android/app/build/outputs/apk/release/
+          mv app-release.apk pills.apk
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release
-          path: android/app/build/outputs/apk/release/app-release.apk
+          name: pills
+          path: android/app/build/outputs/apk/release/pills.apk
