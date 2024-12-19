@@ -2,11 +2,8 @@ name: Android Build
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - 'v*'  # Matches tags like v1.0.0, v2.1.0-beta, etc.
 
 jobs:
   android-build:
